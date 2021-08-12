@@ -46,10 +46,16 @@ while(player1Life>0 && player2Life>0){
 
 
 function playCard(){
-  //randomizing the card numbers
+  //randomizing the card numbers and giving the numbers names
+  // cardNames = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 'King' ,];
+  // let card1= cardNames[Math.floor(Math.random() * cardNames.length + 1)];
+  // newCard1 = cardNames[Math.floor(Math.random() * cardNames.length + 1)];
+  // card2 = cardNames[Math.floor(Math.random() * cardNames.length + 1)];
+  // newCard2 = cardNames[Math.floor(Math.random() * cardNames.length + 1)];
+
   card1 = Math.floor(Math.random() * 13 + 1);
-  newCard1 = Math.floor(Math.random() * 13 + 1);
   card2 = Math.floor(Math.random() * 13 + 1);
+  newCard1 = Math.floor(Math.random() * 13 + 1);
   newCard2 = Math.floor(Math.random() * 13 + 1);
 
   //player1 guessing their next card
@@ -84,6 +90,7 @@ function playCard(){
     player1Life--;
     }
   }
+  console.log(' ')
   console.log(name2 + ' Your turn!');
 
   player2Guess= prompt(name2 + ' your card was: ' + card2 + '\nDo you think your next card will be higher or lower?');
@@ -117,9 +124,10 @@ function playCard(){
   } 
 
   //state what points people have
-  let plural = pointPlayer1!=1?'s':'';
-  console.log(`${name1} has ${pointPlayer1} point${plural}\n${name1} has ${player1Life} lives left!`);
-  console.log(`${name2} has ${pointPlayer2} point${plural}\n${name2} has ${player2Life} lives left`);
+  console.log(' ')
+  console.log(`${name1} points: ${pointPlayer1}\n${name2} points: ${pointPlayer2}`);
+  console.log(`${name1} lives: ${player1Life}\n${name2} lives: ${player2Life}`);
+  console.log(' ')
 
 }
 //States the winner of the game
