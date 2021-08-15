@@ -32,13 +32,18 @@ while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLiv
     console.log('Welcome ' + player2 + ', good luck!');
   }
 
+  console.log(' ')
+  console.log("If you don't like the card you get, write 'swap' to get a new one! Remember, you only get 3 swaps a game!");
+  console.log(' ')
+
 let name1 = (player1 || newRandomName1);
 let name2 = (player2 || newRandomName2);
 let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 let player1Life = playerLives;
 let player2Life = playerLives;
-
+let swap1 = 3;
+let swap2 = 3;
 
 while(player1Life>0 && player2Life>0){
   playCard();
@@ -65,9 +70,43 @@ function playCard(){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
   } 
   console.log('You got: ' + newCard1);
+  swapCard1 = prompt('Would you like to swap the card and get another chance? yes or no');
 
-  //setting player1s point outcome
-  if(player1Guess == 'higher'){
+  while(swapCard1 != 'yes' && swapCard1 != 'no'){
+    swapCard1 = prompt('Would you like to swap the card and get another chance?');
+  } 
+
+  if(swapCard1 == 'yes'){
+    swappedCard = Math.floor(Math.random() * 13 + 1);
+    console.log('You swapped to: ' + swappedCard);
+    swap1--;
+    if(player1Guess == 'higher'){
+      if(swappedCard>card1){
+      console.log('Congratulations ' + name1 + ' you were right!');
+      pointPlayer1++
+      } else if(swappedCard < card1){
+      console.log('Better luck next time ' + name1 + ' you lose a life!');
+      player1Life--;
+      } else if(swappedCard == card1){
+      console.log("It's a tie! " + name1 + ' loses a life!');
+      player1Life--;
+      }
+    }
+     else if(player1Guess == 'lower'){
+      if(swappedCard < card1){
+      console.log('Congratulations ' + name1 + ' you were right!');
+      pointPlayer1++
+      } else if(swappedCard > card1){
+      console.log('Better luck next time ' + name1 + ' you lose a life!');
+      player1Life--;
+      } else if(swappedCard == card1){
+      console.log("It's a tie! " + name1 + ' loses a life!');
+      player1Life--;
+      }
+    }
+  } else{
+    //setting player1s point outcome
+    if(player1Guess == 'higher'){
     if(newCard1 > card1){
       console.log('Congratulations ' + name1 + ' you were right!');
       pointPlayer1++
@@ -78,18 +117,20 @@ function playCard(){
       console.log("It's a tie! " + name1 + ' loses a life!');
       player1Life--;
     }
-  } else if(player1Guess == 'lower'){
-    if(newCard1 < card1){
-    console.log('Congratulations ' + name1 + ' you were right!');
-    pointPlayer1++
-    } else if(newCard1 > card1){
-    console.log('Better luck next time ' + name1 + ' you lose a life!');
-    player1Life--;
-    } else if(newCard1 == card1){
-    console.log("It's a tie! " + name1 + ' loses a life!');
-    player1Life--;
+    } else if(player1Guess == 'lower'){
+      if(newCard1 < card1){
+      console.log('Congratulations ' + name1 + ' you were right!');
+      pointPlayer1++
+      } else if(newCard1 > card1){
+      console.log('Better luck next time ' + name1 + ' you lose a life!');
+      player1Life--;
+      } else if(newCard1 == card1){
+      console.log("It's a tie! " + name1 + ' loses a life!');
+      player1Life--;
+      }
     }
   }
+
   console.log(' ')
   console.log(name2 + ' Your turn!');
 
@@ -98,31 +139,65 @@ function playCard(){
     player2Guess = prompt('Do you think your next card will be higher or lower?');
   }
   console.log('You got: ' + newCard2);
-  //setting player2s point outcome
-  if(player2Guess == 'higher'){
-    if(newCard2 > card2){
+  
+  swapCard2 = prompt('Would you like to swap the card and get another chance? yes or no');
+
+  while(swapCard2 != 'yes' && swapCard2 != 'no'){
+    swapCard2 = prompt('Would you like to swap the card and get another chance?');
+  } 
+ if(swapCard2 == 'yes'){
+    swappedCard2 = Math.floor(Math.random() * 13 + 1);
+    console.log('You swapped to: ' + swappedCard2);
+    swap2--;
+    if (player2Guess == 'higher'){
+      if(swappedCard2 > card2){
      console.log('Congratulations ' + name2 + ' you were right!');
       pointPlayer2++
-    } else if(newCard2 < card2){
+      } else if(swappedCard2 < card2){
       console.log('Better luck next time ' + name2 + ' you lose a life!');
       player2Life--;
-    } else if(newCard2 == card2){
+      } else if(swappedCard2 == card2){
       console.log("It's a tie! " + name2 + ' loses a life!');
       player2Life--;
+      }
+    } else if(player2Guess == 'lower'){
+        if(swappedCard2 < card2){
+        console.log('Congratulations ' + name2 + ' you were right!');
+        pointPlayer2++
+        } else if(swappedCard2 > card2){
+        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        player2Life--;
+        } else if(swappedCard2 == card2){
+        console.log("It's a tie! " + name2 + ' loses a life!');
+        player2Life--;
+      }
     }
-  } else if(player2Guess == 'lower'){
-    if(newCard2 < card2){
-      console.log('Congratulations ' + name2 + ' you were right!');
+  } else{
+    //setting player2s point outcome
+    if(player2Guess == 'higher'){
+      if(newCard2 > card2){
+     console.log('Congratulations ' + name2 + ' you were right!');
       pointPlayer2++
-    } else if(newCard2 > card2){
+      } else if(newCard2 < card2){
       console.log('Better luck next time ' + name2 + ' you lose a life!');
       player2Life--;
-    } else if(newCard2 == card2){
+      } else if(newCard2 == card2){
       console.log("It's a tie! " + name2 + ' loses a life!');
       player2Life--;
+      }
+    } else if(player2Guess == 'lower'){
+        if(newCard2 < card2){
+        console.log('Congratulations ' + name2 + ' you were right!');
+        pointPlayer2++
+        } else if(newCard2 > card2){
+        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        player2Life--;
+        } else if(newCard2 == card2){
+        console.log("It's a tie! " + name2 + ' loses a life!');
+        player2Life--;
+      }
+    } 
   }
-  } 
-
   //state what points people have
   console.log(' ')
   console.log(`${name1} points: ${pointPlayer1}\n${name2} points: ${pointPlayer2}`);
