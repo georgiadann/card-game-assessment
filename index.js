@@ -6,11 +6,13 @@ console.log('Welcome to my card guessing game!');
 
 //allowing user to set amount of lives they would like
 let playerLives = prompt('How many lives would you like to have?');
+//repeats while number is negative, nothing or not a number
 while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLives % 1 != 0){
   console.log('Not a valid number');
   playerLives = prompt('How many lives would you like to have?');
 }
-
+//adding space for usability
+console.log(' ');
 // having list of player names ready to be picked
 randomName1 = ['PickleBear64','progamer8290','Sheeplover22','gurglingGorilla',];
 let newRandomName1 = randomName1[Math.floor(Math.random()* 4 + 0 )];
@@ -26,6 +28,7 @@ if(player1 == ''){
 else{
   console.log('Welcome ' + player1 + ', good luck!');
 }
+console.log(' ');
 //letting player 2 choose their name
 let player2 = prompt('Player 2 please enter a name:');
 if(player2 == ''){
@@ -34,6 +37,7 @@ if(player2 == ''){
 else{
  console.log('Welcome ' + player2 + ', good luck!');
 }
+console.log(' ');
 
 let name1 = (player1 || newRandomName1);
 let name2 = (player2 || newRandomName2);
@@ -84,10 +88,10 @@ function playCard(){
   
   swapCard1 = 'no';
   if(swap1 > 0){    
-    swapCard1 = prompt('Would you like to swap the card and get another chance? yes or no');
+    swapCard1 = prompt('Do you want to swap cards?');
     swapCard1 = swapCard1.toLowerCase();
     while(swapCard1 != 'yes' && swapCard1 != 'no'){
-      swapCard1 = prompt('Would you like to swap the card and get another chance?');
+      swapCard1 = prompt('Do you want to swap cards?');
     } 
   }
 
@@ -101,7 +105,7 @@ function playCard(){
         pointPlayer1++
       } 
       else if(swappedCard < card1){
-        console.log('Better luck next time ' + name1 + ' you lose a life!');
+        console.log('Hard luck ' + name1 + ' you lose a life!');
         player1Life--;
       } 
       else if(swappedCard == card1){
@@ -115,7 +119,7 @@ function playCard(){
         pointPlayer1++
       } 
       else if(swappedCard > card1){
-        console.log('Better luck next time ' + name1 + ' you lose a life!');
+        console.log('Hard luck ' + name1 + ' you lose a life!');
         player1Life--;
       } 
       else if(swappedCard == card1){
@@ -131,7 +135,7 @@ function playCard(){
         pointPlayer1++
       }
       else if(newCard1 < card1){
-        console.log('Better luck next time ' + name1 + ' you lose a life!');
+        console.log('Hard luck ' + name1 + ' you lose a life!');
         player1Life--;
       }
       else if(newCard1 == card1){
@@ -145,7 +149,7 @@ function playCard(){
         pointPlayer1++
       }
       else if(newCard1 > card1){
-        console.log('Better luck next time ' + name1 + ' you lose a life!');
+        console.log('Hard luck ' + name1 + ' you lose a life!');
         player1Life--;
       }
       else if(newCard1 == card1){
@@ -169,10 +173,10 @@ function playCard(){
   
   swapCard2 = 'no';
   if(swap2 > 0){
-    swapCard2 = prompt('Would you like to swap the card and get another chance? yes or no');
+    swapCard2 = prompt('Do you want to swap cards?');
     swapCard2 = swapCard2.toLowerCase();
     while(swapCard2 != 'yes' && swapCard2 != 'no'){
-      swapCard2 = prompt('Would you like to swap the card and get another chance?');
+      swapCard2 = prompt('Do you want to swap cards?');
     } 
   }
 
@@ -186,7 +190,7 @@ function playCard(){
         pointPlayer2++
       } 
       else if(swappedCard2 < card2){
-        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        console.log('Hard luck ' + name2 + ' you lose a life!');
         player2Life--;
       } 
       else if(swappedCard2 == card2){
@@ -200,7 +204,7 @@ function playCard(){
         pointPlayer2++
       } 
       else if(swappedCard2 > card2){
-        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        console.log('Hard luck ' + name2 + ' you lose a life!');
         player2Life--;
       } 
       else if(swappedCard2 == card2){
@@ -217,7 +221,7 @@ function playCard(){
         pointPlayer2++
       } 
       else if(newCard2 < card2){
-        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        console.log('Hard luck ' + name2 + ' you lose a life!');
         player2Life--;
       } 
       else if(newCard2 == card2){
@@ -231,7 +235,7 @@ function playCard(){
         pointPlayer2++
       } 
       else if(newCard2 > card2){
-        console.log('Better luck next time ' + name2 + ' you lose a life!');
+        console.log('Hard luck ' + name2 + ' you lose a life!');
         player2Life--;
       } 
       else if(newCard2 == card2){
@@ -243,6 +247,7 @@ function playCard(){
   //state what points people have
   console.log(' ');
   console.log(`${name1} points: ${pointPlayer1}\n${name2} points: ${pointPlayer2}`);
+  console.log(' ')
   console.log(`${name1} lives: ${player1Life}\n${name2} lives: ${player2Life}`);
   console.log(' ');
 }
