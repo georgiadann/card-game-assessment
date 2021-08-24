@@ -253,11 +253,12 @@ function playCard(){
 }
 
 //States the winner of the game
-let plural = pointPlayer1!=1?'s':'';
 if (pointPlayer1 > pointPlayer2){
+  let plural = pointPlayer1!=1?'s':' ';
   console.log(`Congratulations ${name1} you won with ${pointPlayer1} point${plural}`);
 }
 else if(pointPlayer1 < pointPlayer2){
+  let plural = pointPlayer2!=1?'s':' ';
   console.log(`Congratulations ${name2} you won with ${pointPlayer2} point${plural}`);
 }
 else{
