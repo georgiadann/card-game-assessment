@@ -4,6 +4,7 @@
 
 console.log('Welcome to my card guessing game!');
 
+//allowing user to set amount of lives they would like
 let playerLives = prompt('How many lives would you like to have?');
 while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLives % 1 != 0){
   console.log('Not a valid number');
@@ -17,7 +18,7 @@ let newRandomName1 = randomName1[Math.floor(Math.random()* 4 + 0 )];
 randomName2 = ['tumblingT-rex','prancingPteridactol','sneakyHitman','chompingChimpanzee'];
 let newRandomName2 = randomName2[Math.floor(Math.random()* 4 + 0 )];
 
-//letting the player 1 choose their name
+//letting the player 1 choose their name - if they don't choose random name from list will be picked
 let player1 = prompt('Player 1 please enter a name:');
 if(player1 == ''){
   console.log('welcome ' + newRandomName1 + ', good luck!');
@@ -73,6 +74,8 @@ function playCard(){
 
   //player1 guessing their next card
   let player1Guess= prompt(name1 + ' your card was: ' + cardToName(card1) + '\nDo you think your next card will be higher or lower?');
+
+  player1Guess = player1Guess.toLowerCase();
 
   while(player1Guess != 'higher'&& player1Guess!= 'lower'){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
@@ -152,6 +155,9 @@ function playCard(){
   console.log(name2 + ' Your turn!');
 
   player2Guess= prompt(name2 + ' your card was: ' + cardToName(card2) + '\nDo you think your next card will be higher or lower?');
+
+  player2Guess = player2Guess.toLowerCase();
+
   while(player2Guess != 'higher' && player2Guess !='lower'){
     player2Guess = prompt('Do you think your next card will be higher or lower?');
   }
