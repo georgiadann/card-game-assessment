@@ -81,10 +81,11 @@ function playCard(){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
   } 
   console.log('You got: ' + cardToName(newCard1));
-
+  
   swapCard1 = 'no';
-  if(swap1 > 0){
+  if(swap1 > 0){    
     swapCard1 = prompt('Would you like to swap the card and get another chance? yes or no');
+    swapCard1 = swapCard1.toLowerCase();
     while(swapCard1 != 'yes' && swapCard1 != 'no'){
       swapCard1 = prompt('Would you like to swap the card and get another chance?');
     } 
@@ -169,6 +170,7 @@ function playCard(){
   swapCard2 = 'no';
   if(swap2 > 0){
     swapCard2 = prompt('Would you like to swap the card and get another chance? yes or no');
+    swapCard2 = swapCard2.toLowerCase();
     while(swapCard2 != 'yes' && swapCard2 != 'no'){
       swapCard2 = prompt('Would you like to swap the card and get another chance?');
     } 
