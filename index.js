@@ -41,8 +41,8 @@ let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 let player1Life = playerLives;
 let player2Life = playerLives;
-let swap1 = 3;
-let swap2 = 3;
+let swap1 = playerLives - 1;
+let swap2 = playerLives - 1;
 
 function cardToName(cardNumber){
   if(cardNumber == 1){
@@ -81,11 +81,14 @@ function playCard(){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
   } 
   console.log('You got: ' + cardToName(newCard1));
-  swapCard1 = prompt('Would you like to swap the card and get another chance? yes or no');
 
-  while(swapCard1 != 'yes' && swapCard1 != 'no'){
-    swapCard1 = prompt('Would you like to swap the card and get another chance?');
-  } 
+  swapCard1 = 'no';
+  if(swap1 > 0){
+    swapCard1 = prompt('Would you like to swap the card and get another chance? yes or no');
+    while(swapCard1 != 'yes' && swapCard1 != 'no'){
+      swapCard1 = prompt('Would you like to swap the card and get another chance?');
+    } 
+  }
 
   if(swapCard1 == 'yes'){
     swappedCard = Math.floor(Math.random() * 13 + 1);
@@ -163,11 +166,14 @@ function playCard(){
   }
   console.log('You got: ' + cardToName(newCard2));
   
-  swapCard2 = prompt('Would you like to swap the card and get another chance? yes or no');
+  swapCard2 = 'no';
+  if(swap2 > 0){
+    swapCard2 = prompt('Would you like to swap the card and get another chance? yes or no');
+    while(swapCard2 != 'yes' && swapCard2 != 'no'){
+      swapCard2 = prompt('Would you like to swap the card and get another chance?');
+    } 
+  }
 
-  while(swapCard2 != 'yes' && swapCard2 != 'no'){
-    swapCard2 = prompt('Would you like to swap the card and get another chance?');
-  } 
  if(swapCard2 == 'yes'){
     swappedCard2 = Math.floor(Math.random() * 13 + 1);
     console.log('You swapped to: ' + cardToName(swappedCard2));
