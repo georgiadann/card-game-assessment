@@ -46,8 +46,8 @@ let pointPlayer1 = 0;
 let pointPlayer2 = 0;
 let player1Life = playerLives;
 let player2Life = playerLives;
-let swap1 = playerLives - 1;
-let swap2 = playerLives - 1;
+let swapLives1 = playerLives - 1;
+let swapLives2 = playerLives - 1;
 
 
 //changes numbers into card names
@@ -86,7 +86,7 @@ function playCard(){
 
   //changing all inputs into lowercase
   player1Guess = player1Guess.toLowerCase();
-  
+
   //repeats question as long as answer isn't 'higher' or 'lower'
   while(player1Guess != 'higher'&& player1Guess!= 'lower'){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
@@ -95,7 +95,7 @@ function playCard(){
   
   //letting player1 choose to swap their card
   swapCard1 = 'no';
-  if(swap1 > 0){    
+  if(swapLives1 > 0){    
     swapCard1 = prompt('Do you want to swap cards?');
     swapCard1 = swapCard1.toLowerCase();
     while(swapCard1 != 'yes' && swapCard1 != 'no'){
@@ -107,7 +107,7 @@ function playCard(){
     //setting players outcome if they chose to swap their card
     swappedCard = Math.floor(Math.random() * 13 + 1);
     console.log('You swapped to: ' + cardToName(swappedCard));
-    swap1--;
+    swapLives1--;
     if(player1Guess == 'higher'){
       if(swappedCard>card1){
         console.log('Congratulations ' + name1 + ' you were right!');
@@ -182,7 +182,7 @@ function playCard(){
 
   //giving player2 option to swap their second card
   swapCard2 = 'no';
-  if(swap2 > 0){
+  if(swapLives2 > 0){
     swapCard2 = prompt('Do you want to swap cards?');
     swapCard2 = swapCard2.toLowerCase();
     while(swapCard2 != 'yes' && swapCard2 != 'no'){
@@ -194,7 +194,7 @@ function playCard(){
    //setting player 2 point outcome if they did choose to swap cards
     swappedCard2 = Math.floor(Math.random() * 13 + 1);
     console.log('You swapped to: ' + cardToName(swappedCard2));
-    swap2--;
+    swapLives2--;
     if (player2Guess == 'higher'){
       if(swappedCard2 > card2){
         console.log('Congratulations ' + name2 + ' you were right!');
