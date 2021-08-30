@@ -6,6 +6,7 @@ console.log('Welcome to my card guessing game!');
 
 //allowing user to set amount of lives they would like
 let playerLives = prompt('How many lives would you like to have?');
+
 //repeats while number is negative, nothing or not a number
 while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLives % 1 != 0){
   console.log('Not a valid number');
@@ -13,6 +14,7 @@ while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLiv
 }
 //adding space for usability
 console.log(' ');
+
 // having list of player names ready to be picked if name isnt chosen by player
 randomName1 = ['PickleBear64','progamer8290','Sheeplover22','gurglingGorilla',];
 let newRandomName1 = randomName1[Math.floor(Math.random()* 4 + 0 )];
@@ -29,6 +31,7 @@ else{
   console.log('Welcome ' + player1 + ', good luck!');
 }
 console.log(' ');
+
 //letting player 2 choose their name
 let player2 = prompt('Player 2 please enter a name:');
 if(player2 == ''){
@@ -91,6 +94,8 @@ function playCard(){
   while(player1Guess != 'higher'&& player1Guess!= 'lower'){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
   } 
+
+  //states second card number
   console.log('You got: ' + cardToName(newCard1));
   
   //letting player1 choose to swap their card
@@ -172,12 +177,15 @@ function playCard(){
   console.log(name2 + ' Your turn!');
 
   player2Guess= prompt(name2 + ' your card was: ' + cardToName(card2) + '\nDo you think your next card will be higher or lower?');
+
   //changing all inputs into lowercase
   player2Guess = player2Guess.toLowerCase();
 
   while(player2Guess != 'higher' && player2Guess !='lower'){
     player2Guess = prompt('Do you think your next card will be higher or lower?');
   }
+
+  //states second card number
   console.log('You got: ' + cardToName(newCard2));
 
   //giving player2 option to swap their second card
@@ -254,7 +262,7 @@ function playCard(){
         player2Life--;
       }
     } 
-  }
+  }  
   //state what points people have
   console.log(' ');
   console.log(`${name1} points: ${pointPlayer1}\n${name2} points: ${pointPlayer2}`);
