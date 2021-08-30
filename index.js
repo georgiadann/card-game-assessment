@@ -12,6 +12,7 @@ while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLiv
   console.log('Not a valid number');
   playerLives = prompt('How many lives would you like to have?');
 }
+
 //adding space for usability
 console.log(' ');
 
@@ -51,7 +52,6 @@ let player1Life = playerLives;
 let player2Life = playerLives;
 let swapLives1 = playerLives - 1;
 let swapLives2 = playerLives - 1;
-
 
 //changes numbers into card names
 function cardToName(cardNumber){
