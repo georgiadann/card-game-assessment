@@ -58,7 +58,7 @@ function cardToName(cardNumber){
   if(cardNumber == 1){
    return 'Ace'; 
   } 
-  else if(cardNumber <11){
+  else if(cardNumber < 11){
     return cardNumber;
   }
   else if(cardNumber == 11){
@@ -73,7 +73,7 @@ function cardToName(cardNumber){
 }
 
 //plays game while each player still have more than 0 lives
-while(player1Life>0 && player2Life>0){
+while(player1Life > 0 && player2Life > 0){
   playCard();
 }
 
@@ -85,13 +85,13 @@ function playCard(){
   newCard2 = Math.floor(Math.random() * 13 + 1);
 
   //player1 guessing their next card
-  let player1Guess= prompt(name1 + ' your card was: ' + cardToName(card1) + '\nDo you think your next card will be higher or lower?');
+  let player1Guess = prompt(name1 + ' your card was: ' + cardToName(card1) + '\nDo you think your next card will be higher or lower?');
 
   //changing all inputs into lowercase
   player1Guess = player1Guess.toLowerCase();
 
   //repeats question as long as answer isn't 'higher' or 'lower'
-  while(player1Guess != 'higher'&& player1Guess!= 'lower'){
+  while(player1Guess != 'higher' && player1Guess != 'lower'){
     player1Guess = prompt('Do you think your next card will be higher or lower?');
   } 
 
@@ -114,7 +114,7 @@ function playCard(){
     console.log('You swapped to: ' + cardToName(swappedCard));
     swapLives1--;
     if(player1Guess == 'higher'){
-      if(swappedCard>card1){
+      if(swappedCard > card1){
         console.log('Congratulations ' + name1 + ' you were right!');
         pointPlayer1++
       } 
@@ -130,7 +130,7 @@ function playCard(){
     else if(player1Guess == 'lower'){
       if(swappedCard < card1){
         console.log('Congratulations ' + name1 + ' you were right!');
-        pointPlayer1++
+        pointPlayer1++;
       } 
       else if(swappedCard > card1){
         console.log('Hard luck ' + name1 + ' you lose a life!');
@@ -146,7 +146,7 @@ function playCard(){
     if(player1Guess == 'higher'){
       if(newCard1 > card1){
         console.log('Congratulations ' + name1 + ' you were right!');
-        pointPlayer1++
+        pointPlayer1++;
       }
       else if(newCard1 < card1){
         console.log('Hard luck ' + name1 + ' you lose a life!');
@@ -160,7 +160,7 @@ function playCard(){
     else if(player1Guess == 'lower'){
       if(newCard1 < card1){
         console.log('Congratulations ' + name1 + ' you were right!');
-        pointPlayer1++
+        pointPlayer1++;
       }
       else if(newCard1 > card1){
         console.log('Hard luck ' + name1 + ' you lose a life!');
@@ -220,7 +220,7 @@ function playCard(){
     else if(player2Guess == 'lower'){
       if(swappedCard2 < card2){
         console.log('Congratulations ' + name2 + ' you were right!');
-        pointPlayer2++
+        pointPlayer2++;
       } 
       else if(swappedCard2 > card2){
         console.log('Hard luck ' + name2 + ' you lose a life!');
@@ -237,7 +237,7 @@ function playCard(){
     if(player2Guess == 'higher'){
       if(newCard2 > card2){
         console.log('Congratulations ' + name2 + ' you  were right!');
-        pointPlayer2++
+        pointPlayer2++;
       } 
       else if(newCard2 < card2){
         console.log('Hard luck ' + name2 + ' you lose a life!');
