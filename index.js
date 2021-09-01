@@ -8,8 +8,8 @@ console.log('Welcome to my card guessing game!');
 let playerLives = prompt('How many lives would you like to have?');
 
 //repeats while number is negative, nothing or not a number
-while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLives % 1 != 0){
-  console.log('Not a valid number');
+while(playerLives <= 0 || isNaN(playerLives) || playerLives == null || playerLives % 1 != 0 || playerLives>100){
+  console.log('Enter a number between 1 and 100');
   playerLives = prompt('How many lives would you like to have?');
 }
 
