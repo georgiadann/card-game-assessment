@@ -2,16 +2,6 @@
 //Georgia Dann
 //10/08/2021
 
-//sets player lives, swap lives and names 
-let name1 = (player1 || newRandomName1);
-let name2 = (player2 || newRandomName2);
-let pointPlayer1 = 0;
-let pointPlayer2 = 0;
-let player1Life = playerLives;
-let player2Life = playerLives;
-let swapLives1 = playerLives - 1;
-let swapLives2 = playerLives - 1;
-
 console.log('Welcome to my card guessing game!');
 
 //allowing user to set amount of lives they would like
@@ -52,6 +42,16 @@ else{
  console.log('Welcome ' + player2 + ', good luck!');
 }
 console.log(' ');
+
+//sets player lives, swap lives and names 
+let name1 = (player1 || newRandomName1);
+let name2 = (player2 || newRandomName2);
+let pointPlayer1 = 0;
+let pointPlayer2 = 0;
+let player1Life = playerLives;
+let player2Life = playerLives;
+let swapLives1 = playerLives - 1;
+let swapLives2 = playerLives - 1;
 
 //changes numbers into card names
 function cardToName(cardNumber){
