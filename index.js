@@ -92,7 +92,8 @@ function playCard(){
 
   //repeats question as long as answer isn't 'higher' or 'lower'
   while(player1Guess != 'higher' && player1Guess != 'lower'){
-    player1Guess = prompt('Do you think your next card will be higher or lower?');
+    player1Guess = prompt('Do you think your next card will be higher or lower?').toLowerCase();
+    
   } 
 
   //states second card number
@@ -104,7 +105,7 @@ function playCard(){
     swapCard1 = prompt('Do you want to swap cards?');
     swapCard1 = swapCard1.toLowerCase();
     while(swapCard1 != 'yes' && swapCard1 != 'no'){
-      swapCard1 = prompt('Do you want to swap cards?');
+      swapCard1 = prompt('Do you want to swap cards?').toLowerCase();
     } 
   }
 
@@ -182,7 +183,7 @@ function playCard(){
   player2Guess = player2Guess.toLowerCase();
 
   while(player2Guess != 'higher' && player2Guess !='lower'){
-    player2Guess = prompt('Do you think your next card will be higher or lower?');
+    player2Guess = prompt('Do you think your next card will be higher or lower?').toLowerCase();
   }
 
   //states second card number
@@ -194,7 +195,7 @@ function playCard(){
     swapCard2 = prompt('Do you want to swap cards?');
     swapCard2 = swapCard2.toLowerCase();
     while(swapCard2 != 'yes' && swapCard2 != 'no'){
-      swapCard2 = prompt('Do you want to swap cards?');
+      swapCard2 = prompt('Do you want to swap cards?').toLowerCase();
     } 
   }
 
